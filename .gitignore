@@ -1,2 +1,4 @@
 .venv
 main/db.sqlite3
+main/api/__pycache__
+main/main/__pycache__

@@ -1,5 +1,12 @@
 from rest_framework import serializers
 
+
+class StrictCharField(serializers.CharField):
+    def to_internal_value(self, data):
+        if not isinstance(data, str):
+            raise serializers.ValidationError("This field must be a string.")
+        return super().to_internal_value(data)
+    
 class InputDataSerializer(serializers.Serializer):
     num = serializers.IntegerField()
-    text = serializers.CharField()
+    text = StrictCharField()
