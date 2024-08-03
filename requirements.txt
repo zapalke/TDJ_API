@@ -1,4 +1,4 @@
-django
-django_rest_framework
-ipykernel
-requests
+django=5.0.7
+djangorestframework=3.15.2
+ipykernel=6.29.5
+requests=2.32.3
