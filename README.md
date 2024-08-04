@@ -15,8 +15,13 @@ the result will be like:
 }
 ```
 ## Installation
-1. Verify if you have Python version newer than 3.9
-2. Install requirements.txt (preferably into virtual environment)
-3. Go to main project folder at main/main and run ```python manage.py migrate```
-4. Run server using ```python manage.py runserver```
-5. Access the api at ```localhost:8000/api/validate```
+1. Verify if you have Python version newer than 3.9.
+2. Install requirements.txt (preferably into virtual environment).
+3. Go to main project folder at */main* and run ```python manage.py migrate``` to  create database and migrate models.
+4. Optionally create an API key:
+   1. Open project shell ```python manage.py shell```
+   2. Import ApiKeys model ```from api.models import ApiKeys```
+   3. Add new key ```key = ApiKeys(api_key=[api_key], valid_to=[date])```
+   4. Save new key ```key.save()```
+5. Run server using ```python manage.py runserver```
+6. Access the api at ```localhost:8000/api/validate``` or using provided **validate_api.ipynb** script.
