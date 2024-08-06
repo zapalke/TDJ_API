@@ -39,7 +39,7 @@ class ValidateDataView(APIView):
         """
         now = timezone.now()
         ip_address = self.get_client_ip(request)
-        api_key = ApiKeys.objects.filter(api_key=request.headers.get('apikey'), valid_from__lte=now).first()
+        api_key = ApiKeys.objects.filter(api_key=request.headers.get('apikey'), valid_from__lte=now, valid_to__gte=now).first()
 
         recent_requests = RequestLog.objects.filter(ip=ip_address, request_time__gt=now - timezone.timedelta(minutes=1))
         if not api_key:
